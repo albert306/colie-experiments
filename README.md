@@ -92,10 +92,18 @@ Please refer to the example in [notebook.ipynb](./notebook.ipynb) (or in Colab [
 Please consider citing our paper if our code are useful:
 
 ```bibtex
-@inproceedings{chobola2024fast,
-      title={Fast Context-Based Low-Light Image Enhancement via Neural Implicit Representations}, 
-      author={Tomáš Chobola and Yu Liu and Hanyi Zhang and Julia A. Schnabel and Tingying Peng},
-      booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
-      year={2024}
+@inbook{Chobola2024,
+  title = {Fast Context-Based Low-Light Image Enhancement via Neural Implicit Representations},
+  ISBN = {9783031730160},
+  ISSN = {1611-3349},
+  url = {http://dx.doi.org/10.1007/978-3-031-73016-0_24},
+  DOI = {10.1007/978-3-031-73016-0_24},
+  booktitle = {Computer Vision – ECCV 2024},
+  publisher = {Springer Nature Switzerland},
+  author = {Chobola,  Tomáš and Liu,  Yu and Zhang,  Hanyi and Schnabel,  Julia A. and Peng,  Tingying},
+  year = {2024},
+  month = oct,
+  pages = {413–430}
 }
+
 ```
