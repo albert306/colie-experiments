@@ -1,6 +1,6 @@
 <h1 align="left"><img src="figs/colie.png" align="center" width="7%"><strong>CoLIE</strong></h1>
 
-#### [[`Paper`](https://arxiv.org/abs/2407.12511)] [[`Colab demo`](https://colab.research.google.com/github/ctom2/colie)] [[`BibTeX`](#citing-colie)]
+#### [[`Paper`](https://arxiv.org/abs/2407.12511)] [[`🤗 Demo (CPU)`](https://huggingface.co/spaces/chobola/colie)] [[`Colab Demo (GPU)`](https://colab.research.google.com/github/ctom2/colie)] [[`BibTeX`](#citing-colie)]
 
 > Fast Context-Based Low-Light Image Enhancement via Neural Implicit Representations
 
