@@ -1,6 +1,7 @@
 from utils import *
 from loss import *
 from siren import INF
+from siren import INF_configurable
 from color import rgb2hsv_torch, hsv2rgb_torch
 
 import os
@@ -22,6 +23,8 @@ parser.add_argument('--alpha', type=float, required=True)
 parser.add_argument('--beta', type=float, required=True)
 parser.add_argument('--gamma', type=float, required=True)
 parser.add_argument('--delta', type=float, required=True)
+
+parser.add_argument('--patch_coord_split', type=float, default=0.5)
 opt = parser.parse_args()
 
 
@@ -44,7 +47,7 @@ for PATH in tqdm(np.sort(os.listdir(opt.input_folder))):
     patches = get_patches(img_v_lr, opt.window)
 
 
-    img_siren = INF(patch_dim=opt.window**2, num_layers=4, hidden_dim=256, add_layer=2)
+    img_siren = INF_configurable(patch_dim=opt.window**2, num_layers=4, hidden_dim=256, add_layer=2, patch_coord_split=opt.patch_coord_split)
     img_siren.cuda()
 
     optimizer = torch.optim.Adam(img_siren.parameters(), lr=1e-5, betas=(0.9, 0.999), weight_decay=3e-4)
