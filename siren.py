@@ -1,3 +1,4 @@
+import math
 import torch
 import torch.nn as nn
 import numpy as np
@@ -68,6 +69,8 @@ class INF_configurable(nn.Module):
         '''
         `add_layer` should be in range of  [1, num_layers-2]
         '''
+        patch_end_dim = math.ceil(hidden_dim * patch_coord_split)
+        coord_end_dim = hidden_dim - patch_end_dim
 
         patch_layers = [SirenLayer(patch_dim, hidden_dim, is_first=True)]
         spatial_layers = [SirenLayer(2, hidden_dim, is_first=True)]
@@ -76,8 +79,8 @@ class INF_configurable(nn.Module):
         for _ in range(1, add_layer - 2):
             patch_layers.append(SirenLayer(hidden_dim, hidden_dim))
             spatial_layers.append(SirenLayer(hidden_dim, hidden_dim))
-        patch_layers.append(SirenLayer(hidden_dim, hidden_dim//2))
-        spatial_layers.append(SirenLayer(hidden_dim, hidden_dim//2))
+        patch_layers.append(SirenLayer(hidden_dim, patch_end_dim))
+        spatial_layers.append(SirenLayer(hidden_dim, coord_end_dim))
         
         for _ in range(add_layer, num_layers - 1):
             output_layers.append(SirenLayer(hidden_dim, hidden_dim))
